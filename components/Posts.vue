@@ -55,23 +55,21 @@ const props = defineProps({
                     <div class="absolute ml-4 mt-1 w-[1px] top-0 bg-gray-700 h-full" />
                 </div>
             </div>
-            <div class="w-[calc(100%-50px)] bg-black rounded-lg  font-light text-sm">
+            <div class="w-[calc(100%-50px)] bg-black rounded-lg font-light text-sm relative">
                 <p class="py-2 text-gray-300">
                     {{ post.text }}
                 </p>
                 <img v-if="post && post.picture" :src="post.picture" :alt="post.name"
                     class="mx-auto w-full mt-2 pr-2 rounded" />
-                <div class="absolute mt-2 w-full ml-2">
+                <div class="mt-4 mb-2 ml-2">
                     <button :disabled="isLike" class="flex items-center gap-1">
                         <Icon icon="mdi:heart"
                             class="text-[28px] text-white p-1 hover:bg-gray-800 rounded-full cursor-pointer" />
                     </button>
-                    <div class="relative text-sm text-gray-500">
-                        <div>
-                            <span>
-                                4
-                            </span>
-                            likes
+                    <div class="text-sm text-gray-500">
+                        <div class="flex items-center gap-1">
+                            <span>4</span>
+                            <span>likes</span>
                         </div>
                     </div>
                 </div>
