@@ -32,8 +32,13 @@
             <h2 class="text-center mb-6 mt-4">Login / Register</h2>
             <button class="flex items-center justify-center gap-3 p-1.5 w-full border rounded-full text-lg font-semibold">
                <div class="flex items-center gap-2 justify-center">
-                <img src="/github-logo.png" alt="github" class="w-full max-w-[25px] rounded-full">
-                <span>Github</span>
+                <img 
+                    src="/github-logo.png" 
+                    alt="github" 
+                    class="rounded-full object-contain flex-shrink-0"
+                    style="width: 15px; height: 15px; max-width: 15px; max-height: 15px;"
+                >
+                Github
                </div>
             </button>
         </div>
