@@ -1,0 +1,60 @@
+<script setup>
+import { Icon } from '@iconify/vue';
+import { useUserStore } from '~/stores/user';
+
+const emit = defineEmits(['isDeleted']);
+const runtimeConfig = useRuntimeConfig();
+const userStore = useUserStore();
+const isDeleting = ref(false);
+const isMenu = ref(false);
+const isLike = ref(false);
+const props = defineProps({
+    post: {
+        type: Object,
+        required: true,
+    },
+});
+// const client = useSupabaseClient();
+// const user = useSupabaseUser();
+</script>
+<template>
+    <div class="z-50 bottom-0 h-full w-full">
+        <div class="py-2 w-full">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center text-white">
+                    <img :src="post.image" alt="" class="rounded-full .h-[35px]">
+                    <h6 class="ml-2 font-semibold text-[18px]">{{ post.name }}</h6>
+                </div>
+                <div @click="isMenu = !isMenu" class="relative">
+                    <button :disabled="isDeleting"
+                        class="text-white flex items-center p-1 h-[24px] w-[24px] hover:bg-gray-800 rounded-full cursor-pointer"
+                        :class="{ 'bg-gray-800': isMenu }">
+                        <Icon v-if="!isDeleting" icon="mdi:dots-horizontal" class="text-[18px] text-white" />
+                        <Icon v-else icon="eos-icons:bubble-loading" class="text-[18px] text-white" />
+                    </button>
+                    <div v-if="isMenu" class="absolute border border-gray-600 right-0 z-20 mt-1 rounded">
+                        <button
+                            class="flex items-center justify-between gap-2 pl-4 pr-3 py-1 hover:bg-gray-900 cursor-pointer text-red-500">
+                            <p>Delete</p>
+                            <Icon icon="solar:trash-bin-trash-broken" class="text-[20px] text-red-500" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex relative items-center w-full">
+                <div class="mx-auto w-[42px]">
+                    <div class="absolute ml-4 mt-1 w-[1px] top-0 bg-gray-700 h-full"></div>
+                </div>
+            </div>
+            <div class="w-[calc(100%-50px)] bg-black rounded-lg  font-light text-sm">
+                <p class="py-2 text-gray-300">
+                    {{ post.text }}
+                </p>
+                <img v-if="post && post.picture" :src="post.picture" alt="" class="mx-auto w-full mt-2 pr-2 rounded">
+            </div>
+
+
+        </div>
+
+    </div>
+</template>
