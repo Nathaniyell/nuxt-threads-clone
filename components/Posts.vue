@@ -43,7 +43,7 @@ const props = defineProps({
                     </button>
                     <div v-if="isMenu" class="absolute border border-gray-600 right-0 z-20 mt-1 rounded">
                         <button
-                            class="flex items-center justify-between gap-2 pl-4 pr-3 py-1 hover:bg-gray-900 cursor-pointer text-red-500">
+                            class="flex items-center rounded gap-2 pl-4 pr-3 py-1 hover:bg-gray-900 cursor-pointer text-red-500">
                             <p>Delete</p>
                             <Icon icon="solar:trash-bin-trash-broken" class="text-[20px] text-red-500" />
                         </button>
@@ -52,7 +52,7 @@ const props = defineProps({
             </div>
             <div class="flex relative items-center w-full">
                 <div class="mx-auto w-[42px]">
-                    <div class="absolute ml-4 mt-1 w-[1px] top-0 bg-gray-700 h-full"></div>
+                    <div class="absolute ml-4 mt-1 w-[1px] top-0 bg-gray-700 h-full" />
                 </div>
             </div>
             <div class="w-[calc(100%-50px)] bg-black rounded-lg  font-light text-sm">
@@ -61,10 +61,38 @@ const props = defineProps({
                 </p>
                 <img v-if="post && post.picture" :src="post.picture" :alt="post.name"
                     class="mx-auto w-full mt-2 pr-2 rounded" />
+                <div class="absolute mt-2 w-full ml-2">
+                    <button :disabled="isLike" class="flex items-center gap-1">
+                        <Icon icon="mdi:heart"
+                            class="text-[28px] text-white p-1 hover:bg-gray-800 rounded-full cursor-pointer" />
+                    </button>
+                    <div class="relative text-sm text-gray-500">
+                        <div>
+                            <span>
+                                4
+                            </span>
+                            likes
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
         </div>
+        <div class="relative inline-block text-gray-500 pt-1 pb-1.5">
+            <div class="flex items-center">
+                <div class="flex items-center flex-wrap text-white gap-1 w-[42px]">
+                    <div class="flex items-center gap-1">
+                        <img src="https://picsum.photos/id/202/50" alt="" class="rounded-full h-[14px] mt-2">
+                        <img src="https://picsum.photos/id/223/50" alt="" class="rounded-full h-[17px]">
 
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/id/99/50" alt="" class="rounded-full h-[11px] ml-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full mt-3 bg-gray-800 h-[1px]" />
     </div>
 </template>
