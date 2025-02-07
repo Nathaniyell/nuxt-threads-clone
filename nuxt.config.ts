@@ -1,11 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  modules: ['@nuxtjs/tailwindcss', 
+  modules: ['@nuxtjs/tailwindcss',
     //'@nuxtjs/supabase',
-     '@pinia/nuxt',
-      '@vite-pwa/nuxt',
-       'nuxt-icon'],
+    '@pinia/nuxt',
+    '@vite-pwa/nuxt',
+    'nuxt-icon'],
   runtimeConfig: {
     public: {
       supabaseUrl: process.env.SUPABASE_URL,
@@ -13,5 +13,17 @@ export default defineNuxtConfig({
       bucketUrl: process.env.BUCKET_URL,
     }
   },
-  devtools: { enabled: false },
+  devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
+  experimental: {
+    crossOriginPrefetch: true
+  },
+  nitro: {
+    compressPublicAssets: true
+  },
+  vite: {
+    css: {
+      devSourcemap: true
+    }
+  }
 })

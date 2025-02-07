@@ -1,5 +1,5 @@
 <script setup>
-
+import { Icon } from '@iconify/vue'
 </script>
 
 <template>
@@ -15,17 +15,11 @@
         </div>
         <div id="BottomMenu" class="fixed z-50 flex w-full px-2 h-[70px] border-t border-t-gray-700 bg-black">
             <div class="w-full max-w-[500px] mx-auto flex justify-around items-center">
-                <button
-                @click="navigateTo('/')"
-                class="flex justify-center items-center w-full h-full"
-                >
-                    <Icon name="line-md:home" color="#fff" size="35" />
+                <button @click="navigateTo('/')" class="flex justify-center items-center w-full h-full">
+                    <Icon icon="material-symbols:home" color="#fff" width="35" />
                 </button>
-                <button
-                @click="userStore.isMenuOverlay = true"
-                class="flex justify-center items-center w-full h-full"
-                >
-                    <Icon name="material-symbols:edit-square-outline-rounded" color="#fff" size="35" />
+                <button @click="userStore.isMenuOverlay = true" class="flex justify-center items-center w-full h-full">
+                    <Icon icon="material-symbols:edit-square" color="#fff" width="35" />
                 </button>
             </div>
         </div>
