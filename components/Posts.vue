@@ -12,6 +12,14 @@ const props = defineProps({
     post: {
         type: Object,
         required: true,
+        validator: (post) => {
+            return post && typeof post === 'object'
+        },
+        default: () => ({
+            name: 'Anonymous',
+            image: '/default-avatar.png',
+            text: ''
+        })
     },
 });
 // const client = useSupabaseClient();
@@ -22,8 +30,9 @@ const props = defineProps({
         <div class="py-2 w-full">
             <div class="flex items-center justify-between">
                 <div class="flex items-center text-white">
-                    <img :src="post.image" alt="" class="rounded-full .h-[35px]">
-                    <h6 class="ml-2 font-semibold text-[18px]">{{ post.name }}</h6>
+                    <img :src="post?.image || '/default-avatar.png'" :alt="post?.name || 'User'"
+                        class="rounded-full h-[35px] w-[35px] object-cover">
+                    <h6 class="ml-2 font-semibold text-[18px]">{{ post?.name || 'Anonymous' }}</h6>
                 </div>
                 <div @click="isMenu = !isMenu" class="relative">
                     <button :disabled="isDeleting"
@@ -50,7 +59,8 @@ const props = defineProps({
                 <p class="py-2 text-gray-300">
                     {{ post.text }}
                 </p>
-                <img v-if="post && post.picture" :src="post.picture" alt="" class="mx-auto w-full mt-2 pr-2 rounded">
+                <img v-if="post && post.picture" :src="post.picture" :alt="post.name"
+                    class="mx-auto w-full mt-2 pr-2 rounded" />
             </div>
 
 

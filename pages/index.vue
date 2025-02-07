@@ -30,7 +30,7 @@ onBeforeMount(async () => {
             <div class="mx-auto max-w-[500px] overflow-hidden">
                 <div id="Posts" class="mx-auto max-w-[600px] px-4">
                     <div  v-if="isPosts" v-for="post in posts" :key="post">
-                        <Posts :posts="post" @isDeleted="posts=[]" />
+                        <Posts :post="post" @isDeleted="posts=[]" />
                     </div>
                 </div>
             </div>
