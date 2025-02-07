@@ -15,15 +15,17 @@ import { Icon } from '@iconify/vue'
         </div>
         <div id="BottomMenu" class="fixed z-50 flex w-full px-2 h-[70px] border-t border-t-gray-700 bg-black bottom-0">
             <div class="w-full max-w-[500px] mx-auto flex justify-around items-center">
-                <button @click="navigateTo('/')" class="flex justify-center items-center w-full h-full">
-                    <Icon class="mb-1 text-white" name="material-symbols:home" size="32" />
+                <button @click="navigateTo('/')" class="w-full text-white h-full flex flex-col items-center">
+                    <Icon class="mb-1 text-white" name="mdi:home" size="32" color="#ffffff" />
+                    Home
                 </button>
-                <button @click="userStore.isMenuOverlay = true" class="flex justify-center items-center w-full h-full">
-                    <Icon class="mb-1 text-white" name="material-symbols:edit-square-outline-rounded" size="32" />
+                <button @click="userStore.isMenuOverlay = true" class="w-full h-full flex flex-col items-center text-white">
+                    <Icon class="mb-1 !text-white" name="mdi:pencil-box-outline" size="32" color="#ffffff" />
+                    Edit
                 </button>
-                <button @click="userStore.isLogoutOverlay = true"
-                    class="flex justify-center items-center w-full h-full">
-                    <Icon class="mb-1 text-white" name="material-symbols:logout" size="32" />
+                <button @click="userStore.isLogoutOverlay = true" class="w-full h-full flex flex-col items-center text-white">
+                    <Icon class="mb-1 text-white" name="mdi:logout" size="32" color="#ffffff" />
+                    Logout  
                 </button>
             </div>
         </div>
