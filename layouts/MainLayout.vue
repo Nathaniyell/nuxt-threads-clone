@@ -13,13 +13,17 @@ import { Icon } from '@iconify/vue'
         <div class="w-full max-w-[500px] mx-auto flex h-screen">
             <slot />
         </div>
-        <div id="BottomMenu" class="fixed z-50 flex w-full px-2 h-[70px] border-t border-t-gray-700 bg-black">
+        <div id="BottomMenu" class="fixed z-50 flex w-full px-2 h-[70px] border-t border-t-gray-700 bg-black bottom-0">
             <div class="w-full max-w-[500px] mx-auto flex justify-around items-center">
                 <button @click="navigateTo('/')" class="flex justify-center items-center w-full h-full">
-                    <Icon icon="material-symbols:home" color="#fff" width="35" />
+                    <Icon class="mb-1 text-white" name="material-symbols:home" size="32" />
                 </button>
                 <button @click="userStore.isMenuOverlay = true" class="flex justify-center items-center w-full h-full">
-                    <Icon icon="material-symbols:edit-square" color="#fff" width="35" />
+                    <Icon class="mb-1 text-white" name="material-symbols:edit-square-outline-rounded" size="32" />
+                </button>
+                <button @click="userStore.isLogoutOverlay = true"
+                    class="flex justify-center items-center w-full h-full">
+                    <Icon class="mb-1 text-white" name="material-symbols:logout" size="32" />
                 </button>
             </div>
         </div>

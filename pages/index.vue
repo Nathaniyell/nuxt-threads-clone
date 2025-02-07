@@ -5,6 +5,6 @@ import MainLayout from '../layouts/MainLayout.vue';
 
 <template>
     <MainLayout>
-        <h1>Hello World</h1>
+        <h1 class="text-white">Hello World</h1>
     </MainLayout>
 </template>
