@@ -73,10 +73,10 @@ const onChange = () => {
                                         <img :src="fileDisplay" alt="" class="w-full mt-2 rounded-lg mx-auto mr-2">
                                     </div>
                                     <label for="fileInput">
-                                        <Icon icon="clarity:paperclip-line" size="25" class="text-white cursor-pointer" />
+                                        <Icon icon="clarity:paperclip-line" size="25"
+                                            class="text-white cursor-pointer" />
                                         <input ref="file" type="file" id="fileInput" @change="onChange" class="hidden"
-                                        hidden
-                                        accept=".jpg,.jpeg,.png" />
+                                            hidden accept=".jpg,.jpeg,.png" />
                                     </label>
                                 </div>
                             </div>
@@ -84,6 +84,17 @@ const onChange = () => {
                     </div>
                 </div>
             </div>
+            <button v-if="text" :disabled="isLoading"
+                class="fixed bottom-0 font-bold text-lg w-full bg-black inline-block float-right p-4 border-t border-t-gray-700"
+                :class="isLoading ? 'text-gray-600' : 'text-blue-600'">
+                <div v-if="!isLoading">
+                    Post
+                </div>
+                <div v-else class="flex items-center justify-center gap-2">
+                    <Icon icon="eos-icons:bubble-loading" size="25" class="animate-spin" />
+                    Please wait...
+                </div>
+            </button>
         </div>
 
     </div>
