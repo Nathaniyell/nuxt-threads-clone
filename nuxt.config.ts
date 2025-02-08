@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   modules: ['@nuxtjs/tailwindcss',
-    //'@nuxtjs/supabase',
+    '@nuxtjs/supabase',
     '@pinia/nuxt',
     '@vite-pwa/nuxt',
     'nuxt-icon'],
