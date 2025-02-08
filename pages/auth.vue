@@ -36,7 +36,7 @@
                     src="/github-logo.png" 
                     alt="github" 
                     class="rounded-full object-contain flex-shrink-0"
-                    style="width: 15px; height: 15px; max-width: 15px; max-height: 15px;"
+                    style="width: 25px; height: 25px; max-width: 25px; max-height: 25px;"
                 >
                 Github
                </div>
