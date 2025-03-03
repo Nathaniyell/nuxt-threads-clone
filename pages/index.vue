@@ -6,7 +6,11 @@ const userStore = useUserStore();
 let posts = ref([]);
 let isPostsLoading = ref(false);
 let isPosts = ref(false);
-
+watchEffect(() => {
+    if(!userStore.user) {
+        return navigateTo('/login');
+    }
+})
 onBeforeMount(async () => {
     posts.value = [
         {
