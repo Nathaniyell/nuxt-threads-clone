@@ -1,16 +1,19 @@
 <script setup>
 import MainLayout from '../layouts/MainLayout.vue';
 import { useUserStore } from '../stores/user';
+import { useSupabaseUser } from '../composables/useSupabaseUser';
 const userStore = useUserStore();
-// const user = useSupabaseUser();
+const user = useSupabaseUser();
 let posts = ref([]);
 let isPostsLoading = ref(false);
 let isPosts = ref(false);
+
 watchEffect(() => {
-    if(!userStore.user) {
+    if (!user.value) {
         return navigateTo('/login');
     }
 })
+
 onBeforeMount(async () => {
     posts.value = [
         {
@@ -33,9 +36,9 @@ onBeforeMount(async () => {
         <div id="IndexPage" class="w-full overflow-auto">
             <div class="mx-auto max-w-[500px] overflow-hidden">
                 <div id="Posts" class="mx-auto max-w-[600px] px-4">
-                    <div  v-if="isPosts" v-for="post in posts" :key="post">
-                        <Post :post="post" @isDeleted="posts=[]" />
-                       
+                    <div v-if="isPosts" v-for="post in posts" :key="post">
+                        <Post :post="post" @isDeleted="posts = []" />
+
                     </div>
                 </div>
             </div>

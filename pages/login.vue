@@ -3,8 +3,9 @@ const client = useSupabaseClient();
 const user = useSupabaseUser();
 
 watchEffect(() => {
+    console.log('Current user:', user.value);
     if (user.value) {
-        // console.log(user.value);
+        console.log('Redirecting to home...');
         return navigateTo('/');
     }
 })
